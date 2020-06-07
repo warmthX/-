@@ -1,0 +1,82 @@
+#include<stdio.h>
+#include<string.h>
+char map[27];
+void init(){
+	map[1]='a'; map[2]='a'; map[9]='a'; map[10]='a'; //绿 
+	map[3]='b'; map[4]='b'; map[11]='b'; map[12]='b'; // 红 
+	map[17]='c'; map[18]='c'; map[19]='c'; map[20]='c'; //白 
+	map[21]='d';map[22]='d';map[23]='d';map[24]='d';//黄 
+	map[7]='e';map[8]='e';map[15]='e';map[16]='e';//橙 
+	map[13]='f';map[14]='f';map[5]='f';map[6]='f';//蓝 
+}
+void x(){
+	char s[12];
+	s[0]=map[16];s[1]=map[8];s[2]=map[19];s[3]=map[20];s[4]=map[3];s[5]=map[11];s[6]=map[24];s[7]=map[23];
+	s[8]=map[9];s[9]=map[1];s[10]=map[10];s[11]=map[2];
+	map[19]=s[0];map[20]=s[1];map[3]=s[2];map[11]=s[3];map[24]=s[4];map[23]=s[5];map[16]=s[6];map[8]=s[7];
+	map[1]=s[8];map[2]=s[9];map[9]=s[10];map[10]=s[11];
+}
+void y(){
+	char s[12];
+	s[0]=map[22];s[1]=map[24];s[2]=map[10];s[3]=map[2];s[4]=map[20];s[5]=map[18];s[6]=map[5];s[7]=map[13];
+	s[8]=map[11];s[9]=map[3];s[10]=map[4];s[11]=map[12];
+	map[10]=s[0];map[2]=s[1];map[20]=s[2];map[18]=s[3];map[5]=s[4];map[13]=s[5];map[22]=s[6];map[24]=s[7];
+	map[3]=s[8];map[4]=s[9];map[11]=s[10];map[12]=s[11];
+} 
+void z(){
+	char s[12];
+	s[0]=map[6];s[1]=map[5];s[2]=map[4];s[3]=map[3];s[4]=map[2];s[5]=map[1];s[6]=map[8];s[7]=map[7];
+	s[8]=map[19];s[9]=map[17];s[10]=map[20];s[11]=map[18];
+	map[4]=s[0];map[3]=s[1];map[2]=s[2];map[1]=s[3];map[8]=s[4];map[7]=s[5];map[6]=s[6];map[5]=s[7];
+	map[17]=s[8];map[18]=s[9];map[19]=s[10];map[20]=s[11];
+}
+void show(char s){
+	switch (s){
+		case 'a':
+		printf("绿");
+		break;
+		case 'b':
+		printf("红");
+		break;
+		case 'c':
+		printf("白");
+		break;
+		case 'd':
+		printf("黄");
+		break;
+		case 'e':
+		printf("橙");
+		break;
+		case 'f':
+		printf("蓝");
+		break;
+	}
+	
+			
+			
+}
+int main(){
+	init();
+	char s[1000];
+	int n;
+	scanf("%s",s);
+	n=strlen(s);
+	for(int i=0;i<n;i++){
+		switch(s[i]){
+			case 'x':
+				x();
+				break;
+			case 'y':
+				y();
+				break;
+			case 'z':
+				z();
+				break;
+		}
+	}
+	show(map[2]);
+	show(map[3]);
+	show(map[20]);
+	
+	printf("\n");
+}
